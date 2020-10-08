@@ -42,14 +42,14 @@ def main():
             
     if request.method == 'POST':
         try:
-            m_name = request.form['movie_name']
+            m_name = request.form['r_name']
             m_name =" "+m_name
             result_final = get_recommendations(m_name)
             names = []
             for i in range(len(result_final)):
                 names.append(result_final[i])
 
-            return render_template('positive.html',movie_names=names,search_name=m_name)
+            return render_template('positive.html',r_names=names,search_name=m_name)
         except:
             
             return render_template("negative.html",name=m_name)
